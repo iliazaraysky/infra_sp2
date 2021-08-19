@@ -18,17 +18,20 @@
 
 После того, как Docker соберется и запустится, необходимо сделать миграций, чтобы инициализировать наши модели данных
 Вводим по очереди команды:
-<code>docker-compose exec web python manage.py makemigrations users</code>
 
-<code>docker-compose exec web python manage.py makemigrations titles</code>
+```docker-compose exec web python manage.py makemigrations users
 
-<code>docker-compose exec web python manage.py makemigrations reviews</code>
+docker-compose exec web python manage.py makemigrations titles
 
-<code>docker-compose exec web python manage.py migrate</code>
+docker-compose exec web python manage.py makemigrations reviews
 
-<code>docker-compose exec web python manage.py createsuperuser</code>
+docker-compose exec web python manage.py migrate
 
-<code>docker-compose exec web python manage.py collectstatic</code>
+docker-compose exec web python manage.py createsuperuser
+
+docker-compose exec web python manage.py collectstatic
+```
+
 
 Приложение работает по адресу [http://127.0.0.1/](http://127.0.0.1/)
 # Требования
