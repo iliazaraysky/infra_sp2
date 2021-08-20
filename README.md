@@ -16,20 +16,24 @@
 3. После перехода в папку infra_sp2, создаем файл .env (файл не имеет расширения, но его имя обязательно должно начинаться с точки). Открываем файл любым редактором кода или блокнотом. Вписываем следующие данные:
 
 ```
-DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
-DB_NAME=postgres # имя базы данных
-POSTGRES_USER=postgres # логин для подключения к базе данных
-POSTGRES_PASSWORD=postgres # пароль для подключения к БД (установите свой)
-DB_HOST=db # название сервиса (контейнера)
-DB_PORT=5432 # порт для подключения к БД 
+
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+
 ```
 
-4. Запускаем Docker
+4. Запускаем Docker (из терминала или Git Bash)
 
 <code>docker-compose up</code>
+
 # 
-5. После того, как Docker соберется и запустится, необходимо сделать миграций, чтобы инициализировать наши модели данных
-вводим по очереди команды:
+5. После того, как Docker соберется и запустится (мы поймем, что все работает, когда в терминале ничего не будет происходить а последней строкой будет надпись Attaching to db_1, nginx_1, web_1)
+
+6. Теперь необходимо сделать миграций, чтобы инициализировать модели данных. Открываем новое окно вводим по очереди команды:
 
 ```docker-compose exec web python manage.py makemigrations users
 
