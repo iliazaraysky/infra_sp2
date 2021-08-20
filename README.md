@@ -17,7 +17,7 @@
 <code>docker-compose up</code>
 
 После того, как Docker соберется и запустится, необходимо сделать миграций, чтобы инициализировать наши модели данных
-Вводим по очереди команды:
+вводим по очереди команды:
 
 ```docker-compose exec web python manage.py makemigrations users
 
