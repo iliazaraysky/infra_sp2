@@ -7,13 +7,18 @@
 
 1. Клонируем репозиторий
 
-```git clone https://github.com/iliazaraysky/infra_sp2```
+```
+git clone https://github.com/iliazaraysky/infra_sp2
+```
 
 2. Переходим в папку с проектом
 
-```cd infra_sp2/```
+```
+cd infra_sp2/
+```
 
-3. После перехода в папку infra_sp2, создаем файл .env (файл не имеет расширения, но его имя обязательно должно начинаться с точки). Открываем файл любым редактором кода или блокнотом. Вписываем следующие данные:
+3. **Важно!** Это учебный проект и в нем есть файл .env. В реальной практике, такого не происходит. Файл необходимо создать вручную на этом этапе.
+После перехода в папку infra_sp2, создаем файл .env (файл не имеет расширения, но его имя обязательно должно начинаться с точки). Открываем файл любым редактором кода или блокнотом. Вписываем следующие данные:
 
 ```
 DB_ENGINE=django.db.backends.postgresql
@@ -27,30 +32,36 @@ DB_PORT=5432
 
 4. Запускаем Docker (из терминала или Git Bash)
 
-```docker-compose up```
+```
+docker-compose up
+```
 
 # 
 5. После того, как Docker соберется и запустится (мы поймем, что все работает, когда в терминале ничего не будет происходить а последней строкой будет надпись **Attaching to db_1, nginx_1, web_1**)
 
 6. Теперь необходимо сделать миграций, чтобы инициализировать модели данных. Открываем новое окно терминала, переходим в папку проекта (если терминал открылся в домашней директории), вводим по очереди команды:
 
-```docker-compose exec web python manage.py makemigrations users```
+```
+docker-compose exec web python manage.py makemigrations users
 
-```docker-compose exec web python manage.py makemigrations titles```
+docker-compose exec web python manage.py makemigrations titles
 
-```docker-compose exec web python manage.py makemigrations reviews```
+docker-compose exec web python manage.py makemigrations reviews
 
-```docker-compose exec web python manage.py migrate```
+docker-compose exec web python manage.py migrate
 
-```docker-compose exec web python manage.py createsuperuser```
+docker-compose exec web python manage.py createsuperuser
+```
 
 *Если происходит ошибка "Superuser creation skipped due to not running in a TTY...", значит вы набираете из Git Bash. Чтобы все заработало, необходимо запускать команду используя winpty*
 
-```winpty docker-compose exec web python manage.py createsuperuser ```
+```
+winpty docker-compose exec web python manage.py createsuperuser
 
-```docker-compose exec web python manage.py loaddata fixtures.json```
+docker-compose exec web python manage.py loaddata fixtures.json
 
-```docker-compose exec web python manage.py collectstatic```
+docker-compose exec web python manage.py collectstatic
+```
 
 
 Приложение работает по адресу [http://127.0.0.1/](http://127.0.0.1/)
