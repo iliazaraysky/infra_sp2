@@ -1,5 +1,5 @@
 # Проект: запуск docker-compose
-Это версия проекта [api_yamdb](https://github.com/iliazaraysky/api_yamdb) в котором добавлен Docker. После установки мы получаем полностью рабочее веб-приложение, с базой данных PostgreSQL и веб-сервером Nginx
+Это версия проекта [api_yamdb](https://github.com/iliazaraysky/api_yamdb) в котором добавлен Docker. После установки мы получаем полностью рабочее веб-приложение с базой данных PostgreSQL и веб-сервером Nginx
 
 
 ## Инструкция по установке
