@@ -31,11 +31,12 @@ DB_PORT=5432
 <code>docker-compose up</code>
 
 # 
-5. После того, как Docker соберется и запустится (мы поймем, что все работает, когда в терминале ничего не будет происходить а последней строкой будет надпись Attaching to db_1, nginx_1, web_1)
+5. После того, как Docker соберется и запустится (мы поймем, что все работает, когда в терминале ничего не будет происходить а последней строкой будет надпись **Attaching to db_1, nginx_1, web_1**)
 
-6. Теперь необходимо сделать миграций, чтобы инициализировать модели данных. Открываем новое окно вводим по очереди команды:
+6. Теперь необходимо сделать миграций, чтобы инициализировать модели данных. Открываем новое окно терминала, переходим в папку проекта (если терминал открылся в домашней директории), вводим по очереди команды:
 
-```docker-compose exec web python manage.py makemigrations users
+```
+docker-compose exec web python manage.py makemigrations users
 
 docker-compose exec web python manage.py makemigrations titles
 
@@ -44,6 +45,10 @@ docker-compose exec web python manage.py makemigrations reviews
 docker-compose exec web python manage.py migrate
 
 docker-compose exec web python manage.py createsuperuser
+# Если происходит ошибка "Superuser creation skipped due to not running in a TTY...", значит вы набираете из Git Bash.
+# Чтобы все заработало, необходимо запускать команду используя winpty
+
+winpty docker-compose exec web python manage.py createsuperuser # Применять только если выдает ошибку, иначе пропускаем
 
 docker-compose exec web python manage.py collectstatic
 ```
